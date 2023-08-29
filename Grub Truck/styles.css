@@ -1,0 +1,553 @@
+/* Universal Styles */
+
+html {
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    scroll-behavior: smooth;
+  }
+
+body {
+  margin: 0 auto;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+h3 {
+  color: rgb(0, 0, 0);
+  font-weight: 400;
+}
+
+.container {
+  display: flex;
+  width: 100%;
+}
+
+/*Nav Bar
+I really want to do a nav bar similar to this website https://www.blincatering.com/
+I was struggling, but got to something very similar.
+- The nav bar section and nav options were set to flex displays
+- Added width to the nav-options so the space-around would actually work
+    (I had a hard time figuring out why it wasn't)
+- Made the logo container width smaller and set the logo image to 100%
+- Also changed the nav from ul to indivdual divs with 'a' tags
+  - This allowed me to visualize the nav in 3 parts (left, right, center)
+*/
+
+.nav {
+    background-color: #3ca590;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    position: fixed;
+    z-index: 5;
+    justify-content: space-around;    
+}
+
+.nav-options {
+  display: flex;
+  padding: 2rem;
+  width: 31.25rem;
+  justify-content: space-around;
+}
+
+.nav .nav-item {
+  font-size: 1.125rem;
+  text-transform: uppercase;
+}
+
+.logo {
+  width: 10.93rem;
+}
+
+.nav .logo img {
+  width: 100%;
+}
+
+.menu-button {
+  display: none;
+}
+
+@media screen and (max-width: 675px) {
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 7.8rem;
+  }
+  .nav .nav-options {
+    display: none;
+  }
+
+  .nav .logo {
+    order: 1;
+  }
+
+  .nav .logo img {
+    width: 70%;
+    padding-left: 2rem;
+
+  }
+
+  .menu-button {
+    display: block;
+    order: 3;
+    padding: 2rem;
+  }
+
+  .menu-button img {
+    height: 3rem;
+  }
+  
+}
+
+/*Mission Section
+- Ngl copied and paste bg css from previous project
+- Added a transparent black overlay using an .overlay div in html
+  (Copied code from http://phowheelsdc.com/)
+- I was having trouble centering .mission, but looking at the pho 
+  wheels code reminded me I could use 'margin: 0 auto;'
+*/
+
+#mission-section {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  background-image: url(resources/images/truck/food\ truck\ 4.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+  /* position: fixed; */
+  padding-top: 10.625rem;
+  height: 47.3rem;
+}
+
+#mission-section .overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.63);
+  z-index: 3;
+  padding-top: 10.6rem;
+  height: 47.3rem;  
+}
+
+#mission-section .mission {
+  display: flex;
+  flex-direction: column;
+  width: 31.25rem;
+  padding: 1.25rem;
+  z-index: 4;
+  text-align: center;
+  margin: 0 auto;
+  width: 50rem;
+  align-self: center;
+}
+
+#mission-section h1 {
+  color: white;
+  font-size: 4rem;
+}
+
+#mission-section h3 {
+  color: white;
+}
+
+.order-button {
+  display: none;  
+}
+
+@media screen and (max-width: 675px) {
+  #mission-section {
+    height: 30rem;
+  }
+
+  #mission-section .overlay {
+    height: 30rem;
+  }
+  
+  #mission-section h1 {
+    color: white;
+    font-size: 3rem;
+  }
+
+  #mission-section h3 {
+    display: none;
+  }
+
+  #mission-section .order-button {
+    display: block;
+    color: white; 
+    background-color: #3ca590; 
+  }
+}
+
+
+/*Local Faves Section
+- I liked the photo framing on a burger website and discovered putting
+  'border-radius:' on img created a curver effect
+
+- Had trouble making the images responsive, had to set the width to 100% 
+  on the .food container and and img
+*/
+
+#faves-section {
+  display: flex;
+  width: 90%;
+  margin: 0 auto;
+  flex-direction: column;
+}
+
+#faves-section .faves-header {
+  display: flex;
+}
+
+#faves-section .faves-header .flame img {
+  height: 3rem;
+}
+
+#faves-section h1 {
+  display: flex;
+  justify-content: center;
+  font-size: 3.5rem;
+}
+
+#faves-section .faves-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 2rem 2rem;
+}
+
+.faves-header {
+  justify-content: center;
+}
+
+#faves-section .faves-header .flame {
+  align-self: center;
+}
+
+#faves-section .faves-container .top  {
+  flex-wrap: nowrap;
+}
+
+#faves-section .faves-container .bottom  {
+  flex-wrap: nowrap;
+}
+
+.food {
+  width: 100%;
+  padding: 1.5rem;
+}
+
+#faves-section .faves-container .food img {
+  border-radius: 10%;
+  width: 100%;
+}
+
+#carousel-container {
+  display: none;
+}
+
+/* I wanted to make a simple horizontal image scroll so that the images would 
+present better on smaller screens. I found this article that walked through the 
+process concisely. https://matemarschalko.medium.com/css-only-interactive-swipeable-image-carousel-3a38afe3da58
+ */
+
+@media screen and (max-width: 675px) {
+  #faves-section {
+    margin-bottom: 2rem;
+  }
+  
+  #faves-section h1 {
+    font-size: 2rem;
+  }
+
+  #faves-section .faves-header .flame img {
+    height: 2rem;
+  }
+
+  #faves-section .faves-container {
+    display: none;
+    flex-wrap: wrap;
+    margin: 0 2rem 2rem;
+  }
+
+  #carousel-container {
+    display: flex;
+    height: 21.9rem;
+    width: 18.75rem;
+    padding: 0;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    --slide-count: 5;
+    margin: 0 auto;
+  }
+
+  #carousel {
+    width: calc(100% * var(--slide-count));
+    display: flex;
+    -webkit-overflow-scrolling: touch;
+    list-style-type: none;
+  }
+
+  .slide > img {
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .slide {
+    scroll-snap-align: start;
+  }
+}
+
+/*Local Faves Section*/
+
+#team-container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2rem;
+}
+
+#team-container h1 {
+  display: flex;
+  justify-content: center;
+  font-size: 3.5rem;
+}
+
+.chef {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.chef-photo {
+  display: flex;
+  width: 19rem;
+  padding: 2rem;
+  flex-direction: column;
+}
+
+.chef-bio {
+  display: flex;
+  flex-direction: column;
+  padding-right: 2rem;
+  height: 480px;
+  overflow: scroll;
+  overflow-x: hidden;
+}
+
+
+
+.chef .chef-photo img {
+  width: 19rem;
+}
+
+.chef .chef-photo h2 {
+  display: flex;
+  width: 19rem;
+  justify-content: center;
+}
+
+h3 {
+  color: black;
+  font-size: .9rem;
+}
+
+.row2 {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-evenly;
+}
+
+.tps {
+  width: 10rem;
+  height: auto;
+  flex-direction: column;
+}
+
+
+.row2 .tps img {
+  width: 100%;
+}
+
+.row2 .tps h2, p {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+  margin-bottom: .2rem;
+}
+
+.row2 .tps p {
+  margin-top: .125rem;
+}
+
+@media screen and (min-width: 1025px) {
+  .chef-bio h3 {
+    font-size: 1.1rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  /* CSS rules for screens smaller than 768 pixels */
+  .chef-bio {
+    font-size: .9rem;
+  }
+}
+
+@media screen and (max-width: 675px) {
+  #team-container h1 {
+    font-size: 2rem;
+  }
+  
+  .chef-bio {
+    display: none;
+  }
+  
+
+  .chef {
+    display: flex;
+    flex-wrap: nowrap;
+    margin: 0 auto;
+  }
+
+  .chef-photo {
+    padding: 1rem;
+  }
+
+  .row2 {
+    display: block;
+    margin: 0 auto;
+  }
+  
+
+}
+
+/*Locations Section*/
+#locations-section {
+  display: flex;
+  background-color: black;
+  width: 100%;
+  height: 31.25rem;
+  flex-direction: column;
+  background-image: url(resources/images/truck/food\ truck\ 3.jpeg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+}
+
+#locations-section .overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.63);
+  z-index: 1;
+}
+
+
+#locations-section h1 {
+  display: flex;
+  justify-content: center;
+  font-size: 3.5rem;
+  color: rgba(255, 255, 255, 0.952);
+  z-index: 5;
+}
+
+.locations {
+  display: flex;
+  width: 100%;
+  margin: 0 auto;
+  justify-content: space-around;
+  z-index: 5;
+  
+}
+
+.loc-square {
+  background-color: rgba(14, 14, 14, 0.90);
+  height: 16rem;
+  width: 28.125rem;
+  color: white; 
+  text-align: center;
+}
+
+.loc-square h3 {
+  color: white;
+}
+
+.loc-square h4 {
+  font-weight: 550;
+}
+
+.loc-square h5 {
+  font-weight: 550;
+}
+
+@media screen and (max-width: 675px) {
+  #locations-section h1 {
+    font-size: 2rem;
+    z-index: 4;
+  }
+
+  .locations {
+    display: block;
+    z-index: 5;
+    
+  }
+
+  #locations-section {
+    height: 42rem;
+  }
+
+  .loc-square {
+    margin: 0 auto;
+    width: 19rem;
+}
+}
+
+/*Contact Section*/
+
+#contact-section {
+  display: flex;
+  background-color: black;
+}
+
+.contact-container {
+  display: flex;
+  margin: 0 auto;
+}
+
+.contact-container .info {
+  display: flex;
+  color: white;
+  flex-direction: column;
+  text-align: center;
+}
+
+
+.info h4 {
+  font-weight: 400;
+}
+
+/*Footer*/
+
+#footer {
+  display: flex;
+  background-color: #f89313;
+}
+
+#footer .cr {
+  display: flex;
+  float: left;
+  margin: .5rem;
+  font-size: .8rem;
+  color:black;
+}

@@ -7,33 +7,18 @@
       <link rel="preconnect" href="https://fonts.googleapis.com">
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
       <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;500&display=swap" rel="stylesheet">
+      <!--Javascript-->
+        <!--had to remove "type==module" to get it to work need to figure out it if this actually correct-->
+      <script src="main.js"></script>
+
     </head>
+    
     
     <body>
       <!--Nav Bar-->
-      <div class="container nav">
-        <div class="nav-options">
-          <a href="pages/food-menu.html" class="nav-item">Food Menu</a>
-          <a href="pages/about-us.html" class="nav-item">About Us</a>
-        </div>
-      
-      <div class="logo">
-        <a href="index.html">
-          <img src="resources/images/brand/Grub Truck logo.png" 
-          alt="Food Truck Logo">
-          </a>
-      </div>
-        
-      <div class="nav-options">
-        <a href="pages/locations.html" class="nav-item">Locations</a>
-        <a href="pages/contact-us.html" class="nav-item">Contact Us</a>
-      </div>
+      <my-header></my-header>
 
-      <div class="menu-button">
-        <img src="resources/images/icons8-menu-rounded-100.png" alt="">
-  
-      </div>      
-      </div>
+      
 
       <!--Mission Section-->
       <div id="mission-section" class="container">
@@ -170,9 +155,8 @@
       </div>
 
       <!--Footer-->
-      <div id="footer">
-        <p class="cr">Insert Copright Info Here</p>
-      </div>
+      <my-footer></my-footer>
+      
 
     </body>
 		
